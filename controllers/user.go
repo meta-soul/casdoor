@@ -384,6 +384,7 @@ func (c *ApiController) GetEmailAndPhone() {
 // @Success 200 {object} controllers.Response The Response object
 // @router /set-password [post]
 func (c *ApiController) SetPassword() {
+	_userId := c.Ctx.Request.Form.Get("userId")
 	userOwner := c.Ctx.Request.Form.Get("userOwner")
 	userName := c.Ctx.Request.Form.Get("userName")
 	oldPassword := c.Ctx.Request.Form.Get("oldPassword")
@@ -423,7 +424,15 @@ func (c *ApiController) SetPassword() {
 		c.SetSession("verifiedCode", "")
 	}
 
-	targetUser, err := object.GetUser(userId)
+	var targetUser *object.User
+	var err error
+
+	if _userId != "" {
+		targetUser, err = object.GetUserByUserId(userOwner, _userId)
+	} else {
+		targetUser, err = object.GetUser(userId)
+	}
+
 	if err != nil {
 		c.ResponseError(err.Error())
 		return

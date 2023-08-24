@@ -23,6 +23,8 @@ import i18next from "i18next";
 import BaseListPage from "./BaseListPage";
 import PopconfirmModal from "./common/modal/PopconfirmModal";
 
+import logo from "./assets/images/img/casdoor-logo.png";
+
 class ApplicationListPage extends BaseListPage {
   constructor(props) {
     super(props);
@@ -42,7 +44,8 @@ class ApplicationListPage extends BaseListPage {
       organization: this.state.organizationName,
       createdTime: moment().format(),
       displayName: `New Application - ${randomName}`,
-      logo: `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`,
+      // logo: `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`,
+      logo: logo,
       enablePassword: true,
       enableSignUp: true,
       enableSigninSession: false,

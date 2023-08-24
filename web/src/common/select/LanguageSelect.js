@@ -17,11 +17,59 @@ import * as Setting from "../../Setting";
 import {Dropdown} from "antd";
 import "../../App.less";
 import {GlobalOutlined} from "@ant-design/icons";
+import br_svg from "../../assets/images/flag-icons/BR.svg";
+import cn_svg from "../../assets/images/flag-icons/CN.svg";
+import de_svg from "../../assets/images/flag-icons/DE.svg";
+import es_svg from "../../assets/images/flag-icons/ES.svg";
+import fr_svg from "../../assets/images/flag-icons/FR.svg";
+import gb_svg from "../../assets/images/flag-icons/GB.svg";
+import id_svg from "../../assets/images/flag-icons/ID.svg";
+import in_svg from "../../assets/images/flag-icons/IN.svg";
+import jp_svg from "../../assets/images/flag-icons/JP.svg";
+import kr_svg from "../../assets/images/flag-icons/KR.svg";
+import ru_svg from "../../assets/images/flag-icons/RU.svg";
+import sg_svg from "../../assets/images/flag-icons/SG.svg";
+import us_svg from "../../assets/images/flag-icons/US.svg";
+import vn_svg from "../../assets/images/flag-icons/VN.svg";
 
 function flagIcon(country, alt) {
+
+  let logo = "";
+  if (country === "BR") {
+    logo = br_svg;
+  } else if (country === "CN") {
+    logo = cn_svg;
+  } else if (country === "DE") {
+    logo = de_svg;
+  } else if (country === "ES") {
+    logo = es_svg;
+  } else if (country === "FR") {
+    logo = fr_svg;
+  } else if (country === "GB") {
+    logo = gb_svg;
+  } else if (country === "ID") {
+    logo = id_svg;
+  } else if (country === "IN") {
+    logo = in_svg;
+  } else if (country === "JP") {
+    logo = jp_svg;
+  } else if (country === "KR") {
+    logo = kr_svg;
+  } else if (country === "RU") {
+    logo = ru_svg;
+  } else if (country === "SG") {
+    logo = sg_svg;
+  } else if (country === "US") {
+    logo = us_svg;
+  } else if (country === "VN") {
+    logo = vn_svg;
+  }
   return (
-    <img width={24} alt={alt} src={`${Setting.StaticBaseUrl}/flag-icons/${country}.svg`} />
+    <img width={24} alt={alt} src={logo} />
   );
+  // return (
+  //   <img width={24} alt={alt} src={`${Setting.StaticBaseUrl}/flag-icons/${country}.svg`} />
+  // );
 }
 
 class LanguageSelect extends React.Component {

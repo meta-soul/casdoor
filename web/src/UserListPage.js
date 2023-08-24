@@ -24,6 +24,8 @@ import i18next from "i18next";
 import BaseListPage from "./BaseListPage";
 import PopconfirmModal from "./common/modal/PopconfirmModal";
 
+import casbin_svg from "./assets/images/img/casbin.svg";
+
 class UserListPage extends BaseListPage {
   constructor(props) {
     super(props);
@@ -47,7 +49,8 @@ class UserListPage extends BaseListPage {
       password: "123",
       passwordSalt: "",
       displayName: `New User - ${randomName}`,
-      avatar: `${Setting.StaticBaseUrl}/img/casbin.svg`,
+      // avatar: `${Setting.StaticBaseUrl}/img/casbin.svg`,
+      avatar: casbin_svg,
       email: `${randomName}@example.com`,
       phone: Setting.getRandomNumber(),
       countryCode: this.state.organization.countryCodes?.length > 0 ? this.state.organization.countryCodes[0] : "",

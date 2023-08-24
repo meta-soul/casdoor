@@ -16,7 +16,6 @@ package object
 
 import (
 	"encoding/gob"
-	"fmt"
 	"os"
 
 	"github.com/casdoor/casdoor/conf"
@@ -84,15 +83,15 @@ func initBuiltInOrganization() bool {
 	}
 
 	organization = &Organization{
-		Owner:              "admin",
-		Name:               "built-in",
-		CreatedTime:        util.GetCurrentTime(),
-		DisplayName:        "Built-in Organization",
-		WebsiteUrl:         "https://example.com",
-		Favicon:            fmt.Sprintf("%s/img/casbin/favicon.ico", conf.GetConfigString("staticBaseUrl")),
-		PasswordType:       "plain",
-		CountryCodes:       []string{"US", "ES", "CN", "FR", "DE", "GB", "JP", "KR", "VN", "ID", "SG", "IN"},
-		DefaultAvatar:      fmt.Sprintf("%s/img/casbin.svg", conf.GetConfigString("staticBaseUrl")),
+		Owner:       "admin",
+		Name:        "built-in",
+		CreatedTime: util.GetCurrentTime(),
+		DisplayName: "Built-in Organization",
+		WebsiteUrl:  "https://example.com",
+		// Favicon:            fmt.Sprintf("%s/img/casbin/favicon.ico", conf.GetConfigString("staticBaseUrl")),
+		PasswordType: "plain",
+		CountryCodes: []string{"US", "ES", "CN", "FR", "DE", "GB", "JP", "KR", "VN", "ID", "SG", "IN"},
+		// DefaultAvatar:      fmt.Sprintf("%s/img/casbin.svg", conf.GetConfigString("staticBaseUrl")),
 		Tags:               []string{},
 		Languages:          []string{"en", "zh", "es", "fr", "de", "id", "ja", "ko", "ru", "vi", "pt"},
 		InitScore:          2000,
@@ -118,14 +117,14 @@ func initBuiltInUser() {
 	}
 
 	user = &User{
-		Owner:             "built-in",
-		Name:              "admin",
-		CreatedTime:       util.GetCurrentTime(),
-		Id:                util.GenerateId(),
-		Type:              "normal-user",
-		Password:          "123",
-		DisplayName:       "Admin",
-		Avatar:            fmt.Sprintf("%s/img/casbin.svg", conf.GetConfigString("staticBaseUrl")),
+		Owner:       "built-in",
+		Name:        "admin",
+		CreatedTime: util.GetCurrentTime(),
+		Id:          util.GenerateId(),
+		Type:        "normal-user",
+		Password:    conf.GetConfigString("adminDefaultPassword"),
+		DisplayName: "Admin",
+		// Avatar:            fmt.Sprintf("%s/img/casbin.svg", conf.GetConfigString("staticBaseUrl")),
 		Email:             "admin@example.com",
 		Phone:             "12345678910",
 		CountryCode:       "CN",
@@ -159,11 +158,11 @@ func initBuiltInApplication() {
 	}
 
 	application = &Application{
-		Owner:          "admin",
-		Name:           "app-built-in",
-		CreatedTime:    util.GetCurrentTime(),
-		DisplayName:    "Casdoor",
-		Logo:           fmt.Sprintf("%s/img/casdoor-logo_1185x256.png", conf.GetConfigString("staticBaseUrl")),
+		Owner:       "admin",
+		Name:        "app-built-in",
+		CreatedTime: util.GetCurrentTime(),
+		DisplayName: "Casdoor",
+		// Logo:           fmt.Sprintf("%s/img/casdoor-logo_1185x256.png", conf.GetConfigString("staticBaseUrl")),
 		HomepageUrl:    "https://casdoor.org",
 		Organization:   "built-in",
 		Cert:           "cert-built-in",

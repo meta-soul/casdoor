@@ -35,6 +35,9 @@ import {Controlled as CodeMirror} from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import ThemeEditor from "./common/theme/ThemeEditor";
 
+import casbin_svg from "./assets/images/img/casbin.svg";
+import casdoor_logo from "./assets/images/img/casdoor-logo.png";
+
 require("codemirror/theme/material-darker.css");
 require("codemirror/mode/htmlmixed/htmlmixed");
 require("codemirror/mode/xml/xml");
@@ -82,11 +85,11 @@ const sideTemplate = `<style>
   }
 </style>
 <div class="left-model">
-  <span class="side-logo"> <img src="https://cdn.casbin.org/img/casdoor-logo_1185x256.png" alt="Casdoor" style="width: 120px"> 
+  <span class="side-logo"> <img src=${casdoor_logo} alt="Casdoor" style="width: 120px"> 
     <span>SSO</span> 
   </span>
   <div class="img">
-    <img src="https://cdn.casbin.org/img/casbin.svg" alt="Casdoor"/>
+    <img src=${casbin_svg} alt="Casdoor"/>
   </div>
 </div>
 `;

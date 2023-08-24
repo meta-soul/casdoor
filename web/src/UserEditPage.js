@@ -891,7 +891,7 @@ class UserEditPage extends React.Component {
             if (needExit) {
               const userListUrl = sessionStorage.getItem("userListUrl");
               if (userListUrl !== null) {
-                this.props.history.push(userListUrl);
+                this.props.history.push(userListUrl.replace(Setting.RootUrl, ""));
               } else {
                 this.props.history.push("/users");
               }

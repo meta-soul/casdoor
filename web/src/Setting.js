@@ -26,12 +26,22 @@ import * as Conf from "./Conf";
 import * as phoneNumber from "libphonenumber-js";
 import moment from "moment";
 
+import captcha_default from "./assets/images/img/captcha_default.png";
+import social_auth0 from "./assets/images/img/social_auth0.png";
+import social_github from "./assets/images/img/social_github.png";
+import social_lark from "./assets/images/img/social_lark.png";
+import social_wechat from "./assets/images/img/social_wechat.png";
+
 const {Option} = Select;
 
 export const ServerUrl = "";
 
+export const RootUrl = process.env.PUBLIC_URL;
+
 // export const StaticBaseUrl = "https://cdn.jsdelivr.net/gh/casbin/static";
-export const StaticBaseUrl = "https://cdn.casbin.org";
+// export const StaticBaseUrl = "https://cdn.casbin.org";
+// export const StaticBaseUrl = "http://192.168.110.210:19091/static";
+export const StaticBaseUrl = "./assets/images";
 
 export const Countries = [{label: "English", key: "en", country: "US", alt: "English"},
   {label: "中文", key: "zh", country: "CN", alt: "中文"},
@@ -714,12 +724,28 @@ export function getProviderLogoURL(provider) {
     if (provider.type === "Custom") {
       return provider.customLogo;
     }
-    return `${StaticBaseUrl}/img/social_${provider.type.toLowerCase()}.png`;
+
+    let logo = "";
+    if (provider.type.toLowerCase() === "auth0") {
+      logo = social_auth0;
+    } else if (provider.type.toLowerCase() === "github") {
+      logo = social_github;
+    } else if (provider.type.toLowerCase() === "lark") {
+      logo = social_lark;
+    } else if (provider.type.toLowerCase() === "wechat") {
+      logo = social_wechat;
+    } else {
+      logo = captcha_default;
+    }
+
+    return logo;
+    // return `${StaticBaseUrl}/img/social_${provider.type.toLowerCase()}.png`;
   } else {
     const info = OtherProviderInfo[provider.category][provider.type];
     // avoid crash when provider is not found
     if (info) {
-      return info.logo;
+      return captcha_default;
+      // return info.logo;
     }
     return "";
   }

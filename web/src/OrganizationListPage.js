@@ -21,6 +21,8 @@ import * as OrganizationBackend from "./backend/OrganizationBackend";
 import i18next from "i18next";
 import BaseListPage from "./BaseListPage";
 import PopconfirmModal from "./common/modal/PopconfirmModal";
+import favicon_png from "./assets/images/img/favicon.png";
+import casbin_svg from "./assets/images/img/casbin.svg";
 
 class OrganizationListPage extends BaseListPage {
   newOrganization() {
@@ -31,11 +33,13 @@ class OrganizationListPage extends BaseListPage {
       createdTime: moment().format(),
       displayName: `New Organization - ${randomName}`,
       websiteUrl: "https://door.casdoor.com",
-      favicon: `${Setting.StaticBaseUrl}/img/favicon.png`,
+      // favicon: `${Setting.StaticBaseUrl}/img/favicon.png`,
+      favicon: favicon_png,
       passwordType: "plain",
       PasswordSalt: "",
       countryCodes: ["CN"],
-      defaultAvatar: `${Setting.StaticBaseUrl}/img/casbin.svg`,
+      // defaultAvatar: `${Setting.StaticBaseUrl}/img/casbin.svg`,
+      default: casbin_svg,
       defaultApplication: "",
       tags: [],
       languages: Setting.Countries.map(item => item.key),

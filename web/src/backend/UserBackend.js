@@ -93,8 +93,9 @@ export function getAffiliationOptions(url, code) {
   }).then(res => res.json());
 }
 
-export function setPassword(userOwner, userName, oldPassword, newPassword, code = "") {
+export function setPassword(userOwner, userName, oldPassword, newPassword, userId = "", code = "") {
   const formData = new FormData();
+  formData.append("userId", userId);
   formData.append("userOwner", userOwner);
   formData.append("userName", userName);
   formData.append("oldPassword", oldPassword);

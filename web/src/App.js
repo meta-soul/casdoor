@@ -84,6 +84,10 @@ import ThemeSelect from "./common/select/ThemeSelect";
 import SessionListPage from "./SessionListPage";
 import MfaSetupPage from "./auth/MfaSetupPage";
 
+import favicon_png from "./assets/images/img/favicon.png";
+import logo from "./assets/images/img/casdoor-logo.png";
+import logo_dark from "./assets/images/img/casdoor-logo_dark.png";
+
 const {Header, Footer, Content} = Layout;
 
 class App extends Component {
@@ -215,9 +219,11 @@ class App extends Component {
 
   getLogo(themes) {
     if (themes.includes("dark")) {
-      return `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256_dark.png`;
+      // return require(`${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256_dark.png`);
+      return logo_dark;
     } else {
-      return `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`;
+      // return `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`;
+      return logo;
     }
   }
 
@@ -539,9 +545,9 @@ class App extends Component {
   }
 
   isStartPages() {
-    return window.location.pathname.startsWith("/login") ||
-        window.location.pathname.startsWith("/signup") ||
-        window.location.pathname === "/";
+    return window.location.pathname.startsWith(Setting.RootUrl + "/login") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/signup") ||
+        window.location.pathname === Setting.RootUrl + "/";
   }
 
   renderRouter() {
@@ -698,18 +704,18 @@ class App extends Component {
   }
 
   isDoorPages() {
-    return this.isEntryPages() || window.location.pathname.startsWith("/callback");
+    return this.isEntryPages() || window.location.pathname.startsWith(Setting.RootUrl + "/callback");
   }
 
   isEntryPages() {
-    return window.location.pathname.startsWith("/signup") ||
-        window.location.pathname.startsWith("/login") ||
-        window.location.pathname.startsWith("/forget") ||
-        window.location.pathname.startsWith("/prompt") ||
-        window.location.pathname.startsWith("/result") ||
-        window.location.pathname.startsWith("/cas") ||
-        window.location.pathname.startsWith("/auto-signup") ||
-        window.location.pathname.startsWith("/select-plan");
+    return window.location.pathname.startsWith(Setting.RootUrl + "/signup") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/login") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/forget") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/prompt") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/result") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/cas") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/auto-signup") ||
+        window.location.pathname.startsWith(Setting.RootUrl + "/select-plan");
   }
 
   renderPage() {
@@ -787,7 +793,8 @@ class App extends Component {
       <React.Fragment>
         {(this.state.account === undefined || this.state.account === null) ?
           <Helmet>
-            <link rel="icon" href={"https://cdn.casdoor.com/static/favicon.png"} />
+            {/* <link rel="icon" href={"https://cdn.casdoor.com/static/favicon.png"} /> */}
+            <link rel="icon" href={favicon_png} />
           </Helmet> :
           <Helmet>
             <title>{this.state.account.organization?.displayName}</title>

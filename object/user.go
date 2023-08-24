@@ -380,6 +380,11 @@ func GetUser(id string) (*User, error) {
 	return getUser(owner, name)
 }
 
+func GetUserById(id string, user_id string) (*User, error) {
+	owner, _ := util.GetOwnerAndNameFromId(id)
+	return getUserById(owner, user_id)
+}
+
 func GetUserNoCheck(id string) (*User, error) {
 	owner, name := util.GetOwnerAndNameFromIdNoCheck(id)
 	return getUser(owner, name)

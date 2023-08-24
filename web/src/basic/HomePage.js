@@ -19,6 +19,11 @@ import * as Setting from "../Setting";
 import SingleCard from "./SingleCard";
 import i18next from "i18next";
 
+import application_logo from "../assets/images/img/applications.png";
+import organization_logo from "../assets/images/img/organizations.png";
+import user_logo from "../assets/images/img/users.png";
+import providers_logo from "../assets/images/img/providers.png";
+
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -52,11 +57,19 @@ class HomePage extends React.Component {
       ];
 
       for (let i = 0; i < items.length; i++) {
-        let filename = items[i].link;
-        if (filename === "/account") {
-          filename = "/users";
+        const filename = items[i].link;
+        let logo = "";
+        if (filename === "/organizations") {
+          logo = organization_logo;
+        } else if (filename === "applications") {
+          logo = application_logo;
+        } else if (filename === "/users") {
+          logo = user_logo;
+        } else if (filename === "providers") {
+          logo = providers_logo;
         }
-        items[i].logo = `${Setting.StaticBaseUrl}/img${filename}.png`;
+        // items[i].logo = `${Setting.StaticBaseUrl}/img${filename}.png`;
+        items[i].logo = logo;
         items[i].createdTime = "";
       }
     } else {

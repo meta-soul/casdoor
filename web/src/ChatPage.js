@@ -23,6 +23,9 @@ import * as MessageBackend from "./backend/MessageBackend";
 import i18next from "i18next";
 import BaseListPage from "./BaseListPage";
 
+import logo from "./assets/images/img/casdoor-logo.png";
+// require(logo);
+
 class ChatPage extends BaseListPage {
   constructor(props) {
     super(props);
@@ -217,7 +220,8 @@ class ChatPage extends BaseListPage {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundImage: "url(https://cdn.casbin.org/img/casdoor-logo_1185x256.png)",
+                // backgroundImage: "url(https://cdn.casbin.org/img/casdoor-logo_1185x256.png)",
+                backgroundImage: logo,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "200px auto",

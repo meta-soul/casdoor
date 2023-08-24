@@ -16,6 +16,10 @@ import React from "react";
 import {Card, Col} from "antd";
 import * as Setting from "../Setting";
 import {withRouter} from "react-router-dom";
+import application_logo from "../assets/images/img/applications.png";
+import organization_logo from "../assets/images/img/organizations.png";
+import user_logo from "../assets/images/img/users.png";
+import providers_logo from "../assets/images/img/providers.png";
 
 const {Meta} = Card;
 
@@ -56,7 +60,15 @@ class SingleCard extends React.Component {
 
   renderCard(logo, link, title, desc, time, isSingle) {
     const silentSigninLink = this.wrappedAsSilentSigninLink(link);
-
+    if (silentSigninLink === "/organizations") {
+      logo = organization_logo;
+    } else if (silentSigninLink === "/applications") {
+      logo = application_logo;
+    } else if (silentSigninLink === "/users") {
+      logo = user_logo;
+    } else if (silentSigninLink === "/providers") {
+      logo = providers_logo;
+    }
     return (
       <Col style={{paddingLeft: "20px", paddingRight: "20px", paddingBottom: "20px", marginBottom: "20px"}} span={6}>
         <Card

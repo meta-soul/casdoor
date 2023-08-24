@@ -60,9 +60,11 @@ func isIpAddress(host string) bool {
 }
 
 func getOriginFromHost(host string) (string, string) {
-	origin := conf.GetConfigString("origin")
-	if origin != "" {
-		return origin, origin
+	// origin := conf.GetConfigString("origin")
+	originFrontend := conf.GetConfigString("originFrontend")
+	originBackend := conf.GetConfigString("originBackend")
+	if originFrontend != "" && originBackend != "" {
+		return originFrontend, originBackend
 	}
 
 	protocol := "https://"

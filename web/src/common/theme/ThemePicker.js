@@ -18,15 +18,23 @@ import {css} from "@emotion/react";
 import {Space, theme} from "antd";
 import * as React from "react";
 import i18next from "i18next";
-import * as Setting from "../../Setting";
+
+import theme_default from "../../assets/images/img/theme_default.svg";
+import theme_dark from "../../assets/images/img/theme_dark.svg";
+import theme_lark from "../../assets/images/img/theme_lark.svg";
+import theme_comic from "../../assets/images/img/theme_comic.svg";
 
 const {useToken} = theme;
 
 export const THEMES = {
-  default: `${Setting.StaticBaseUrl}/img/theme_default.svg`,
-  dark: `${Setting.StaticBaseUrl}/img/theme_dark.svg`,
-  lark: `${Setting.StaticBaseUrl}/img/theme_lark.svg`,
-  comic: `${Setting.StaticBaseUrl}/img/theme_comic.svg`,
+  // default: `${Setting.StaticBaseUrl}/img/theme_default.svg`,
+  // dark: `${Setting.StaticBaseUrl}/img/theme_dark.svg`,
+  // lark: `${Setting.StaticBaseUrl}/img/theme_lark.svg`,
+  // comic: `${Setting.StaticBaseUrl}/img/theme_comic.svg`,
+  default: theme_default,
+  dark: theme_dark,
+  lark: theme_lark,
+  comic: theme_comic,
 };
 
 const themeTypes = {

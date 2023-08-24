@@ -27,8 +27,9 @@ import "./backend/FetchFilter";
 const container = document.getElementById("root");
 
 const app = createRoot(container);
+const rootUrl = process.env.PUBLIC_URL;
 
-app.render(<BrowserRouter>
+app.render(<BrowserRouter basename={rootUrl}>
   <App />
 </BrowserRouter>);
 

@@ -25,6 +25,7 @@ import {Controlled as CodeMirror} from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 require("codemirror/theme/material-darker.css");
 require("codemirror/mode/javascript/javascript");
+import logo from "./assets/images/img/casdoor-logo.png";
 
 const {Option} = Select;
 
@@ -34,7 +35,8 @@ const applicationTemplate = {
   organization: "built-in",
   createdTime: "2022-01-01T01:03:42+08:00",
   displayName: "New Application - 123",
-  logo: `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`,
+  // logo: `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`,
+  logo: logo,
   enablePassword: true,
   enableSignUp: true,
   enableSigninSession: false,

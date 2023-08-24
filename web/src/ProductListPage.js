@@ -23,6 +23,9 @@ import BaseListPage from "./BaseListPage";
 import {EditOutlined} from "@ant-design/icons";
 import PopconfirmModal from "./common/modal/PopconfirmModal";
 
+import logo from "./assets/images/img/casdoor-logo.png";
+// require(logo);
+
 class ProductListPage extends BaseListPage {
   newProduct() {
     const randomName = Setting.getRandomName();
@@ -31,7 +34,8 @@ class ProductListPage extends BaseListPage {
       name: `product_${randomName}`,
       createdTime: moment().format(),
       displayName: `New Product - ${randomName}`,
-      image: `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`,
+      // image: `${Setting.StaticBaseUrl}/img/casdoor-logo_1185x256.png`,
+      image: logo,
       tag: "Casdoor Summit 2022",
       currency: "USD",
       price: 300,
