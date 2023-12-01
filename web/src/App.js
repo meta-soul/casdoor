@@ -677,7 +677,7 @@ class App extends Component {
             </Card>
           }
         </Content>
-        {this.renderFooter()}
+        {/* {this.renderFooter()} */}
       </Layout>
     );
   }
@@ -742,7 +742,7 @@ class App extends Component {
             }
           </Content>
           {
-            this.renderFooter()
+            // this.renderFooter()
           }
         </Layout>
       );
