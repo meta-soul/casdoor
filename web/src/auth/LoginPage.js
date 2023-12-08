@@ -530,9 +530,9 @@ class LoginPage extends React.Component {
                 {i18next.t("login:Auto sign in")}
               </Checkbox>
             </Form.Item>
-            {
+            {/* {
               Setting.renderForgetLink(application, i18next.t("login:Forgot password?"))
-            }
+            } */}
           </div>
           {AgreementModal.isAgreementRequired(application) ? AgreementModal.renderAgreementFormItem(application, true, {}, this) : null}
           <Form.Item>
@@ -639,18 +639,19 @@ class LoginPage extends React.Component {
 
   renderFooter(application) {
     return (
-      <span style={{float: "right"}}>
-        {
-          !application.enableSignUp ? null : (
-            <React.Fragment>
-              {i18next.t("login:No account?")}&nbsp;
-              {
-                Setting.renderSignupLink(application, i18next.t("login:sign up now"))
-              }
-            </React.Fragment>
-          )
-        }
-      </span>
+      <></>
+      // <span style={{float: "right"}}>
+      //   {
+      //     !application.enableSignUp ? null : (
+      //       <React.Fragment>
+      //         {i18next.t("login:No account?")}&nbsp;
+      //         {
+      //           Setting.renderSignupLink(application, i18next.t("login:sign up now"))
+      //         }
+      //       </React.Fragment>
+      //     )
+      //   }
+      // </span>
     );
   }
 
